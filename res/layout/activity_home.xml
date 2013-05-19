@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+<!-- TODO Implement progressBar Circle -->
+<!--     <ProgressBar -->
+<!--          android:layout_width="wrap_content" -->
+<!--          android:layout_height="wrap_content" -->
+<!--          style="@android:style/Widget.ProgressBar.Small" -->
+<!--          android:layout_marginRight="5dp" /> -->
+    
+    <TextView
+        android:id="@+id/home_event_title_id"
+        android:layout_width="match_parent"
+        android:layout_weight="2"
+        android:layout_height="0dp"
+        android:text="@string/home_event_title" />
+    
+    <TextView
+         android:id="@+id/home_event_description_id"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:text="@string/home_event_description" />
+    
+   <fragment  
+        android:id="@+id/home_gMapView"
+        android:layout_width="match_parent"
+        android:layout_weight="3"
+        android:layout_height="0dp"
+        class="com.google.android.gms.maps.MapFragment"
+        />
+  
+    <Button
+        android:id="@+id/home_attend_button"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:text="@string/home_attend_button"
+        android:background="@drawable/bg_btn_primary" />
+</LinearLayout>

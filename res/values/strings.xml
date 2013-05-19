@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Open Your Mic</string>
+    <string name="action_settings">Settings</string>
+    <string name="home_event_title">title</string>
+    <string name="home_attend_button">I\'m in!</string>
+    <string name="home_event_description">desc</string>
+    <string name="title_activity_registration">Emargement</string>
+    <string name="registration_info_message">Donne-nous ton nom pour participer!</string>
+    <string name="registration_participant_name">Nom</string>
+	<string name="registration_participate_button">Participer!</string>
+	<string name="regitration_participant_lastname">Prénom</string>
+	<string name="regitration_participant_comment">Vos suggestions, commentaires, idées &#8230;</string>
+</resources>

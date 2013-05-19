@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.delikescence.openyourmic"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="17" />
+
+    <permission
+        android:name="com.delikescence.openyourmic.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <uses-permission android:name="com.delikescence.openyourmic.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <service
+            android:name="com.delikescence.openyourmic.services.EventService"
+            android:exported="false" /> <!-- TO REMOVE TO MAKE SERVICE AVAILABLE TO OTHER APPS -->
+
+        <receiver
+            android:name="com.delikescence.openyourmic.OpenYourMicReceiver"
+            android:exported="false" >
+
+            <!--
+            <intent-filter android:priority="100">
+				<action android:name="com.delikescence.openyourmic.RETRIEVE_EVENT_DATA" />
+				 <data android:mimeType="text/*" android:scheme="http" />
+			</intent-filter>
+            -->
+        </receiver>
+        <!-- !TODO remove exported to communicate data to other apps -->
+
+        <activity
+            android:name="com.delikescence.openyourmic.HomeActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="com.delikescence.openyourmic.database.EventContentProvider"
+            android:authorities="com.delikescence.openyourmic.database.EventContentProvider"
+            android:exported="false"
+            android:multiprocess="true"
+            android:permission="com.delikescence.openyourmic.database.EventContentProvider.WRITE_PERMISSION" >
+        </provider>
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyBSpCPP9BEWE7zG92uzFLmFyTYTOTyoQuY" />
+
+        <activity
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            android:name="com.delikescence.openyourmic.RegistrationActivity"
+            android:label="@string/title_activity_registration" >
+        </activity>
+        
+        <service android:name="com.delikescence.openyourmic.services.RegistrationService"
+            	 android:exported="false" />
+    </application>
+
+</manifest>
